@@ -13,9 +13,9 @@ public class Machine {
             while (shortchange - coins[i] >= 0) {
                 shortchange = shortchange - coins[i];
                 rsl[size++] = coins[i];
-                if (shortchange == 0) {
-                    break;
-                }
+            }
+            if (shortchange == 0) {
+                break;
             }
         }
         return Arrays.copyOf(rsl, size);
