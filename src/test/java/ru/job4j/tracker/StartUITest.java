@@ -6,41 +6,10 @@ import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.nullValue;
 
 public class StartUITest {
-    @Test
-    public void whenAddItem() {
-        String[] answers = {"Alex"};
-        Input input = new StubInput(answers);
-        Tracker tracker = new Tracker();
-        StartUI.createItem(input, tracker);
-        Item created = tracker.findAll()[0];
-        Item expected = new Item("Alex");
-        assertThat(created.getName(), is(expected.getName()));
-    }
+
 
     @Test
-    public void whenReplaceItem() {
-        Tracker tracker = new Tracker();
-        Item item = new Item("new item");
-        tracker.add(item);
-        String[] answers = {String.valueOf(item.getId()), "replaced item"};
-        StartUI.replaceItem(new StubInput(answers), tracker);
-        Item replaced = tracker.findById(item.getId());
-        assertThat(replaced.getName(), is("replaced item"));
-    }
-
-    @Test
-    public void whenDeleteItem() {
-        Tracker tracker = new Tracker();
-        Item item = new Item();
-        tracker.add(item);
-        String[] answers = {String.valueOf(item.getId())};
-        StartUI.deleteItem(new StubInput(answers), tracker);
-        Item deleted = tracker.findById(item.getId());
-        assertThat((deleted), is(nullValue()));
-    }
-
-    @Test
-    public void whenCreateItemAction() {
+    public void whenCreateItem() {
         Input in = new StubInput(
                 new String[] {"0", "Item name", "1"}
         );
@@ -54,7 +23,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenReplaceItemAction() {
+    public void whenReplaceItem() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Replaced item"));
         String replacedName = "New item name";
@@ -70,7 +39,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenDeleteItemAction() {
+    public void whenDeleteItem() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Deleted item"));
         Input in = new StubInput(
