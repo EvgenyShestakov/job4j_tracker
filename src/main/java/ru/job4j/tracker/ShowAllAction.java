@@ -1,22 +1,29 @@
 package ru.job4j.tracker;
 
 public class ShowAllAction implements UserAction {
+    private final Output out;
+
+    public ShowAllAction(Output out) {
+        this.out = out;
+    }
+
     @Override
     public String name() {
-        return "=== Show all items ===";
+        return "ShowAll";
     }
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
+        out.println("=== Show all items ===");
         boolean flag = false;
         Item[] itemAll = tracker.findAll();
         if (itemAll.length > 0) {
             for (Item elem : itemAll) {
-                System.out.println(elem);
+               out.println(elem);
             }
          flag = true;
         } else {
-            System.out.println("No requests found");
+            out.println("No requests found");
 
         }
         return flag;
