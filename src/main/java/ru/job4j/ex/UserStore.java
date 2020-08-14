@@ -37,6 +37,5 @@ public class UserStore {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
