@@ -10,6 +10,10 @@ public class ConsoleInput implements Input {
         this.out = out;
     }
 
+    public ConsoleInput() {
+        out = null;
+    }
+
     @Override
     public String askStr(String question) {
         out.println(question);
