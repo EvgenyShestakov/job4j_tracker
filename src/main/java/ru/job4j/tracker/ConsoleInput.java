@@ -20,4 +20,8 @@ public class ConsoleInput implements Input {
     public int askInt(String question) {
         return Integer.valueOf(askStr(question));
     }
+
+    public Output getOut() {
+        return out;
+    }
 }

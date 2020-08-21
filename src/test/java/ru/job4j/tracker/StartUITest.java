@@ -142,7 +142,7 @@ public class StartUITest {
                 )
         ));
     }
-
+/*
     @Test
     public void whenCheckOutput() {
         Output out = new StubOutput();
@@ -170,5 +170,6 @@ public class StartUITest {
         int selected = input.askInt("Enter menu:");
         assertThat(selected, is(1));
     }
+    */
 }
 
