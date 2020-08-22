@@ -3,6 +3,7 @@ package ru.job4j.tracker;
 import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
 
 public class TrackerTest {
@@ -44,32 +45,28 @@ public class TrackerTest {
     public  void  whenTrackerSingletonEnum() {
         TrackerSingleEnum trackerSingleEnumOne = TrackerSingleEnum.INSTANCE;
         TrackerSingleEnum trackerSingleEnumTwo = TrackerSingleEnum.INSTANCE;
-        boolean equality = trackerSingleEnumOne.equals(trackerSingleEnumTwo);
-        assertThat(equality, is (true));
+        assertSame(trackerSingleEnumOne, trackerSingleEnumTwo);
     }
 
     @Test
     public  void  TrackerSingleSFEagerLoading() {
         TrackerSingleSFEagerLoading trackerSingleSFEagerLoadingOne = TrackerSingleSFEagerLoading.getInstance();
         TrackerSingleSFEagerLoading trackerSingleSFEagerLoadingTwo = TrackerSingleSFEagerLoading.getInstance();
-        boolean equality = trackerSingleSFEagerLoadingOne.equals(trackerSingleSFEagerLoadingTwo);
-        assertThat(equality, is (true));
+        assertSame(trackerSingleSFEagerLoadingOne, trackerSingleSFEagerLoadingTwo);
     }
 
     @Test
     public  void  TrackerSingleSFLazyLoading() {
         TrackerSingleSFLazyLoading trackerSingleSFLazyLoadingOne = TrackerSingleSFLazyLoading.getInstance();
         TrackerSingleSFLazyLoading trackerSingleSFLazyLoadingTwo = TrackerSingleSFLazyLoading.getInstance();
-        boolean equality = trackerSingleSFLazyLoadingOne.equals(trackerSingleSFLazyLoadingTwo);
-        assertThat(equality, is (true));
+        assertSame(trackerSingleSFLazyLoadingOne,  trackerSingleSFLazyLoadingTwo);
     }
 
     @Test
     public  void  TrackerSingleSCLazyLoading() {
         TrackerSingleSCLazyLoading trackerSingleSCLazyLoadingOne = TrackerSingleSCLazyLoading.getInstance();
         TrackerSingleSCLazyLoading trackerSingleSCLazyLoadingTwo = TrackerSingleSCLazyLoading.getInstance();
-        boolean equality = trackerSingleSCLazyLoadingOne.equals(trackerSingleSCLazyLoadingTwo);
-        assertThat(equality, is (true));
+        assertSame(trackerSingleSCLazyLoadingOne, trackerSingleSCLazyLoadingTwo);
     }
 
 }
