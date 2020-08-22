@@ -39,4 +39,37 @@ public class TrackerTest {
         tracker.delete(id);
         assertThat(tracker.findById(id), is (nullValue()));
     }
+
+    @Test
+    public  void  whenTrackerSingletonEnum() {
+        TrackerSingleEnum trackerSingleEnumOne = TrackerSingleEnum.INSTANCE;
+        TrackerSingleEnum trackerSingleEnumTwo = TrackerSingleEnum.INSTANCE;
+        boolean equality = trackerSingleEnumOne.equals(trackerSingleEnumTwo);
+        assertThat(equality, is (true));
+    }
+
+    @Test
+    public  void  TrackerSingleSFEagerLoading() {
+        TrackerSingleSFEagerLoading trackerSingleSFEagerLoadingOne = TrackerSingleSFEagerLoading.getInstance();
+        TrackerSingleSFEagerLoading trackerSingleSFEagerLoadingTwo = TrackerSingleSFEagerLoading.getInstance();
+        boolean equality = trackerSingleSFEagerLoadingOne.equals(trackerSingleSFEagerLoadingTwo);
+        assertThat(equality, is (true));
+    }
+
+    @Test
+    public  void  TrackerSingleSFLazyLoading() {
+        TrackerSingleSFLazyLoading trackerSingleSFLazyLoadingOne = TrackerSingleSFLazyLoading.getInstance();
+        TrackerSingleSFLazyLoading trackerSingleSFLazyLoadingTwo = TrackerSingleSFLazyLoading.getInstance();
+        boolean equality = trackerSingleSFLazyLoadingOne.equals(trackerSingleSFLazyLoadingTwo);
+        assertThat(equality, is (true));
+    }
+
+    @Test
+    public  void  TrackerSingleSCLazyLoading() {
+        TrackerSingleSCLazyLoading trackerSingleSCLazyLoadingOne = TrackerSingleSCLazyLoading.getInstance();
+        TrackerSingleSCLazyLoading trackerSingleSCLazyLoadingTwo = TrackerSingleSCLazyLoading.getInstance();
+        boolean equality = trackerSingleSCLazyLoadingOne.equals(trackerSingleSCLazyLoadingTwo);
+        assertThat(equality, is (true));
+    }
+
 }
