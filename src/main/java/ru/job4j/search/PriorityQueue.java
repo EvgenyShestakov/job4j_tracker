@@ -9,16 +9,22 @@ public class PriorityQueue {
      * Метод должен вставлять в нужную позицию элемент.
      * Позиция определяется по полю приоритет.
      * Для вставки использовать add(int index, E value)
+     *
      * @param task задача
      */
     public void put(Task task) {
-        int index = 0;
-        for (Task element : tasks) {
-        if (task.getPriority() > element.getPriority()) {
-        index++;
+        if (tasks.size() == 0) {
+            tasks.add(task);
+        } else {
+            int index = 0;
+            for (Task element : tasks) {
+                if (task.getPriority() < element.getPriority()) {
+                    tasks.add(index, task);
+                    break;
+                }
+                index++;
+            }
         }
-        }
-        this.tasks.add(index, task);
     }
 
     public Task take() {
