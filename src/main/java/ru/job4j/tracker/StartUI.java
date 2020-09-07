@@ -1,6 +1,8 @@
 package ru.job4j.tracker;
 
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StartUI {
     private final Output out;
@@ -18,8 +20,7 @@ public class StartUI {
         Tracker tracker = TrackerSingleEnum.INSTANCE.getTracker();
         UserAction[] actions = {new CreateAction(output), new ShowAllAction(output),
                 new ReplaceAction(output), new DeleteAction(output),
-                new FindByIdAction(output), new FindByNameAction(output),
-                new Exit(output)};
+                new FindByIdAction(output), new FindByNameAction(output), new Exit(output)};
         new StartUI(output).init(input, tracker, actions);
     }
 
