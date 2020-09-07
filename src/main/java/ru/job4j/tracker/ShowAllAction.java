@@ -1,9 +1,5 @@
 package ru.job4j.tracker;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-
 public class ShowAllAction implements UserAction {
     private final Output out;
 
