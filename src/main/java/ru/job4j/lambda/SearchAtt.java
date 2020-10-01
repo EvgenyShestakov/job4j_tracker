@@ -2,22 +2,26 @@ package ru.job4j.lambda;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.UnaryOperator;
+import java.util.function.Predicate;
 
 public class SearchAtt {
-    public static List<Attachment> filter(List<Attachment> list) {
-        UnaryOperator<List<Attachment>> unaryOperator = new UnaryOperator<List<Attachment>>() {
+    public static boolean filter(List<Attachment> list) {
+        Predicate<List<Attachment>> predicate = new Predicate<List<Attachment>>() {
             @Override
-            public List<Attachment> apply(List<Attachment> attachments) {
+            public boolean test(List<Attachment> attachments) {
+                boolean flag;
                 List<Attachment> rsl = new ArrayList<>();
                 for (Attachment att : attachments) {
                     if (att.getSize() > 100 && att.getName().contains("bug")) {
                         rsl.add(att);
                     }
                 }
-                return rsl;
+                flag = attachments.retainAll(rsl);
+                return flag;
             }
         };
-        return unaryOperator.apply(list);
+        return predicate.test(list);
     }
 }
+
+
