@@ -11,7 +11,8 @@ public class School {
     }
 
     public Map<String, Student> convertToMap(List<Student> students) {
-        return students.stream().collect(Collectors
-                .toMap(Student::getSurname, student -> student));
+        return students.stream().collect(Collectors.
+                toMap(Student::getSurname, student -> student, (s1, s2) -> s1.
+                        getScore() > s2.getScore() ? s1 : s2));
     }
 }
