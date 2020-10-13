@@ -12,12 +12,10 @@ public class BankService {
 
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
-        if (user != null) {
             List<Account> accounts = users.get(user);
             if (!accounts.contains(account)) {
                 accounts.add(account);
             }
-        }
     }
 
     public User findByPassport(String passport) {
@@ -26,6 +24,8 @@ public class BankService {
                 .filter(user -> user.getPassport().equals(passport)).findAny();
         if (optional.isPresent()) {
             userFind = optional.get();
+        } else {
+            System.out.println("Passport number not found");
         }
         return userFind;
     }
@@ -33,14 +33,15 @@ public class BankService {
     public Account findByRequisite(String passport, String requisite) {
         Account account = null;
         User user = findByPassport(passport);
-        if (user != null) {
             List<Account> accounts = users.get(user);
          Optional<Account> optional = accounts.stream().
                  filter(account1 -> account1.getRequisite().equals(requisite)).findAny();
          if (optional.isPresent()) {
              account = optional.get();
+         } else {
+             System.out.println("Requisites not found");
          }
-        }
+
         return account;
     }
 
