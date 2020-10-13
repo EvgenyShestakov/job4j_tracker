@@ -1,9 +1,6 @@
 package ru.job4j.list;
 
 import org.junit.Test;
-import ru.job4j.list.ConvertMatrix2List;
-
-import java.util.Arrays;
 import java.util.List;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
