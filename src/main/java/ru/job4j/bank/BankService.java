@@ -16,6 +16,8 @@ public class BankService {
             if (!accounts.contains(account)) {
                 accounts.add(account);
             }
+        }  else {
+            System.out.println("User not found.");
         }
     }
 
@@ -32,6 +34,8 @@ public class BankService {
             List<Account> accounts = users.get(any.get());
             optional = accounts.stream().
                     filter(account1 -> account1.getRequisite().equals(requisite)).findAny();
+        }  else {
+            System.out.println("User not found.");
         }
         return optional;
     }
@@ -47,6 +51,8 @@ public class BankService {
                 accountDest.get().setBalance(accountDest.get().getBalance() + amount);
                 rsl = true;
             }
+        } else {
+            System.out.println("Account not found.");
         }
         return rsl;
     }
