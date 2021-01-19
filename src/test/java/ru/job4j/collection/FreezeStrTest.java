@@ -7,16 +7,31 @@ import org.junit.Test;
 public class FreezeStrTest {
     @Test
     public void whenEq() {
-        assertThat(FreezeStr.eq("Hello", "Hlloe"), is(true));
+        assertThat(FreezeStr.eqArray("Hello", "Hlloe"), is(true));
     }
 
     @Test
     public void whenNotEq() {
-        assertThat(FreezeStr.eq("Hello", "Halle"), is(false));
+        assertThat(FreezeStr.eqArray("Hello", "Halle"), is(false));
     }
 
     @Test
     public void whenNotMultiEq() {
-        assertThat(FreezeStr.eq("heloo", "hello"), is(false));
+        assertThat(FreezeStr.eqArray("heloo", "hello"), is(false));
+    }
+
+    @Test
+    public void whenEq2() {
+        assertThat(FreezeStr.eqHashMap("Hello", "Hlloe"), is(true));
+    }
+
+    @Test
+    public void whenNotEq2() {
+        assertThat(FreezeStr.eqHashMap("Hello", "Halle"), is(false));
+    }
+
+    @Test
+    public void whenNotMultiEq2() {
+        assertThat(FreezeStr.eqHashMap("heloo", "hello"), is(false));
     }
 }

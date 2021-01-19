@@ -5,9 +5,7 @@ import java.util.function.Consumer;
 public class ConsumerAndThen {
     public static Consumer<String> consumer(String input) {
          Consumer<String> print = System.out::print;
-         Consumer<String> ln = System.out::println;
-        Consumer<String> result = print.andThen(ln);
-        result.accept(input);
-         return result;
+        Consumer<String> ln = s -> System.out.println();
+         return  print.andThen(ln);
     }
 }

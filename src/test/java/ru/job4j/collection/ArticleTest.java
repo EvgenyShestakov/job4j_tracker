@@ -7,10 +7,10 @@ import static org.junit.Assert.*;
 
 public class ArticleTest {
     @Test
-    public void whenLineGnrTrue() {
+    public void whenLineGnrTrueHashSet() {
 
         assertThat(
-                Article.generateBy(
+                Article.generateByHashSet(
                         "Мама мыла раму и окно",
                         "мыла окно"
                 ),
@@ -19,9 +19,9 @@ public class ArticleTest {
     }
 
     @Test
-    public void whenLineGnrFalse() {
+    public void whenLineGnrFalseHashSet() {
         assertThat(
-                Article.generateBy(
+                Article.generateByHashSet(
                         "Мама мыла раму и окно",
                         "мыла пол"
                 ),
@@ -30,9 +30,9 @@ public class ArticleTest {
     }
 
     @Test
-    public void whenLongTextTrue() {
+    public void whenLongTextTrueHashSet() {
         assertThat(
-                Article.generateBy(
+                Article.generateByHashSet(
                         "Мой дядя самых честных правил, " +
                                 "Когда не в шутку занемог, " +
                                 "Он уважать себя заставил " +
@@ -53,9 +53,78 @@ public class ArticleTest {
         );
     }
     @Test
-    public void whenLongTextFalse() {
+    public void whenLongTextFalseHashSet() {
         assertThat(
-                Article.generateBy(
+                Article.generateByHashSet(
+                        "Мой дядя самых честных правил, " +
+                                "Когда не в шутку занемог, " +
+                                "Он уважать себя заставил " +
+                                "И лучше выдумать не мог. " +
+                                "Его пример другим наука; " +
+                                "Но, боже мой, какая скука " +
+                                "С больным сидеть и день и ночь, " +
+                                "Не отходя ни шагу прочь! " +
+                                "Какое низкое коварство " +
+                                "Полуживого забавлять, " +
+                                "Ему подушки поправлять, " +
+                                "Печально подносить лекарство, " +
+                                "Вздыхать и думать про себя: " +
+                                "Когда же черт возьмет тебя!",
+                        "Мой дядя мог думать про Linux и Java день и ночь"
+                ),
+                is(false)
+        );
+    }
+    @Test
+    public void whenLineGnrTrueHashMap() {
+
+        assertThat(
+                Article.generateByHashMap(
+                        "Мама мыла раму и окно",
+                        "мыла окно"
+                ),
+                is(true)
+        );
+    }
+
+    @Test
+    public void whenLineGnrFalseHashMap() {
+        assertThat(
+                Article.generateByHashMap(
+                        "Мама мыла раму и окно",
+                        "мыла пол"
+                ),
+                is(false)
+        );
+    }
+
+    @Test
+    public void whenLongTextTrueHashMap() {
+        assertThat(
+                Article.generateByHashMap(
+                        "Мой дядя самых честных правил, " +
+                                "Когда не в шутку занемог, " +
+                                "Он уважать себя заставил " +
+                                "И лучше выдумать не мог. " +
+                                "Его пример другим наука; " +
+                                "Но, боже мой, какая скука " +
+                                "С больным сидеть и день и ночь, " +
+                                "Не отходя ни шагу прочь! " +
+                                "Какое низкое коварство " +
+                                "Полуживого забавлять, " +
+                                "Ему подушки поправлять, " +
+                                "Печально подносить лекарство, " +
+                                "Вздыхать и думать про себя: " +
+                                "Когда же черт возьмет тебя!",
+                        "Мой дядя мог думать про тебя и день и ночь"
+                ),
+                is(true)
+        );
+    }
+    @Test
+    public void whenLongTextFalseHashMap() {
+        assertThat(
+                Article.generateByHashMap(
                         "Мой дядя самых честных правил, " +
                                 "Когда не в шутку занемог, " +
                                 "Он уважать себя заставил " +
